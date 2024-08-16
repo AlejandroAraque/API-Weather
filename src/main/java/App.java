@@ -1,5 +1,11 @@
 import javax.swing.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import java.awt.*;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -18,6 +24,8 @@ public class App extends JFrame {
     private JButton showForecastButton;
 
     String location = null;
+    Double latitude;
+    Double longitude;
 
     public App() {
         setTitle("Weather App");
@@ -99,9 +107,38 @@ public class App extends JFrame {
         }
     }
 
+    private void getCoordinates(String city) {
+        location = city;
+
+        String url = "http://api.openweathermap.org/geo/1.0/direct?q=" + location + "&limit=1&appid=4ac43d201d238cf4749262c4f4ed588f";
+        HttpClient http = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+
+        try {
+            HttpResponse<String> response = http.send(request, HttpResponse.BodyHandlers.ofString());
+
+            JSONArray json = new JSONArray(response.body());
+
+            if (json.length() > 0) {
+                JSONObject cityObject = json.getJSONObject(0);
+
+                latitude = cityObject.getDouble("lat");
+                longitude = cityObject.getDouble("lon");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void updateWeatherInfo() {
-        // Simular la obtención de datos del clima
         String time = new SimpleDateFormat("HH:mm:ss").format(new Date());
+
+        getCoordinates(location);
+
         cityLabel.setText("<html><b>City:</b> " + location + "</html>");
         timeLabel.setText("<html><b>Time:</b> " + time + "</html>");
     }
