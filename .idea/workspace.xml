@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42678fa3-8dab-4015-8eac-508ae0fb8bc3" name="Changes" comment="Inicialización labels">
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+    <list default="true" id="42678fa3-8dab-4015-8eac-508ae0fb8bc3" name="Changes" comment="api datos">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,7 @@
       <updated>1706118950739</updated>
       <workItem from="1706118952028" duration="7000" />
       <workItem from="1706206498267" duration="1979000" />
-      <workItem from="1723485428065" duration="1206000" />
+      <workItem from="1723485428065" duration="3119000" />
     </task>
     <task id="LOCAL-00001" summary="creacion">
       <created>1723485583207</created>
@@ -85,7 +85,28 @@
       <option name="project" value="LOCAL" />
       <updated>1723555385549</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="nuevos componentes">
+      <created>1723744092684</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723744092684</updated>
+    </task>
+    <task id="LOCAL-00006" summary="nuevos componentes">
+      <created>1723846187167</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1723846187168</updated>
+    </task>
+    <task id="LOCAL-00007" summary="api datos">
+      <created>1723846209015</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1723846209015</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +127,8 @@
     <MESSAGE value="creacion" />
     <MESSAGE value="dependencias pom" />
     <MESSAGE value="Inicialización labels" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicialización labels" />
+    <MESSAGE value="nuevos componentes" />
+    <MESSAGE value="api datos" />
+    <option name="LAST_COMMIT_MESSAGE" value="api datos" />
   </component>
 </project>

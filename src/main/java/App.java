@@ -139,8 +139,30 @@ public class App extends JFrame {
 
         getCoordinates(location);
 
-        cityLabel.setText("<html><b>City:</b> " + location + "</html>");
-        timeLabel.setText("<html><b>Time:</b> " + time + "</html>");
+        String url = "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=4ac43d201d238cf4749262c4f4ed588f&units=Metric";
+        HttpClient http = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .GET()
+                .build();
+
+        try {
+            HttpResponse<String> response = http.send(request, HttpResponse.BodyHandlers.ofString());
+
+            JSONObject json = new JSONObject(response.body());
+
+            cityLabel.setText("<html><b>City:</b> " + location + "</html>");
+            timeLabel.setText("<html><b>Time:</b> " + time + "</html>");
+            temperatureLabel.setText("<html><b>Temperature:</b> " + json.getJSONObject("main").getFloat("temp") + " °C</html>");
+            maxTemperatureLabel.setText("<html><b>Max Temperature:</b> " + json.getJSONObject("main").getFloat("temp_max") + " °C</html>");
+            minTemperatureLabel.setText("<html><b>Min Temperature:</b> " + json.getJSONObject("main").getFloat("temp_min") + " °C</html>");
+            feelsLikeLabel.setText("<html><b>Feels Like:</b> " + json.getJSONObject("main").getFloat("feels_like") + " °C</html>");
+            pressureLabel.setText("<html><b>Pressure:</b> " + json.getJSONObject("main").getInt("pressure") + " hPa</html>");
+            humidityLabel.setText("<html><b>Humidity:</b> " + json.getJSONObject("main").getInt("humidity") + " %</html>");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
